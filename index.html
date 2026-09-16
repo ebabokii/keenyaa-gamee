@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gaamee Aviator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #111;
+      color: white;
+      text-align: center;
+      font-family: Arial;
+      padding-top: 50px;
+    }
+
+    h1 {
+      color: #00ff88;
+    }
+
+    #multiplier {
+      font-size: 55px;
+      margin: 40px 0;
+    }
+
+    button {
+      font-size: 22px;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 10px;
+      background: #00ff88;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>✈️ Gaamee Aviator</h1>
+
+  <div id="multiplier">1.00x</div>
+
+  <button onclick="startGame()">START</button>
+
+  <script>
+    let x = 1.00;
+    let timer;
+
+    function startGame() {
+      clearInterval(timer);
+      x = 1.00;
+
+      timer = setInterval(function() {
+        x += 0.01;
+        document.getElementById("multiplier").innerText =
+          x.toFixed(2) + "x";
+
+        if (x >= 10) {
+          clearInterval(timer);
+        }
+      }, 100);
+    }
+  </script>
+
+</body>
+</html>
